@@ -141,7 +141,7 @@ export default function Navbar() {
 
       {/* Slide-over Menu Drawer (Silver / Chrome Glass Luxury Theme) */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex justify-end">
+        <div className="fixed inset-0 z-[100] flex justify-end">
           {/* Dimmed Overlay */}
           <div
             onClick={() => setIsOpen(false)}
@@ -149,8 +149,12 @@ export default function Navbar() {
             aria-hidden="true"
           />
 
-          {/* Right-Side Luxury Drawer */}
-          <div className="relative w-full sm:w-[420px] md:w-[460px] h-full bg-[#0d0e11] text-white shadow-2xl flex flex-col z-10 overflow-y-auto animate-in slide-in-from-right duration-300 border-l border-white/10 selection:bg-white/20">
+          {/* Right-Side Luxury Drawer (With data-lenis-prevent and touch-pan-y for flawless mobile scrolling) */}
+          <div
+            data-lenis-prevent="true"
+            style={{ WebkitOverflowScrolling: "touch" }}
+            className="relative w-full sm:w-[420px] md:w-[460px] h-[100dvh] max-h-[100dvh] bg-[#0d0e11] text-white shadow-2xl flex flex-col z-10 overflow-y-auto overscroll-contain animate-in slide-in-from-right duration-300 border-l border-white/10 selection:bg-white/20 touch-pan-y scrollbar-none"
+          >
             {/* Background Architecture Building Silhouette on the right side */}
             <div className="absolute right-0 bottom-16 w-[78%] h-[60%] pointer-events-none opacity-35 overflow-hidden">
               <Image
