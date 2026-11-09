@@ -35,21 +35,18 @@ const AUTOPLAY_INTERVAL = 4800; // 4.8s per slide
 
 const statusOptions = [
   "All Status",
-  "Coming Soon",
+  "Under Construction",
+  "Nearly Ready",
   "Newly Launched",
-  "Ongoing",
-  "Ready to Move",
+  "Ready",
 ];
 
 const locationOptions = [
   "All Locations",
-  "Gulshan",
-  "Banani",
-  "Baridhara",
-  "Dhanmondi",
-  "Uttara",
-  "Bashundhara",
-  "Chattogram",
+  "Bashundhara R/A",
+  "Gulshan & Baridhara",
+  "Uttara & Mirpur",
+  "Chattogram & Other",
 ];
 
 interface SearchFilterProps {
@@ -200,8 +197,8 @@ function SearchFilter({
         onKeyDown={handleTriggerKeyDown}
         className={`flex min-h-[60px] w-full items-center gap-3 rounded-2xl border px-4 py-2.5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900/20 ${
           isOpen
-            ? "border-zinc-400 bg-white shadow-sm"
-            : "border-zinc-200/80 bg-zinc-50/80 hover:border-zinc-300 hover:bg-white"
+            ? "border-zinc-400 bg-white/95 backdrop-blur-md shadow-sm"
+            : "border-white/50 bg-white/55 backdrop-blur-md hover:bg-white/75 sm:border-zinc-200/80 sm:bg-zinc-50/80 sm:hover:border-zinc-300 sm:hover:bg-white shadow-sm"
         }`}
       >
         <span className="min-w-0 flex-1">
@@ -308,11 +305,15 @@ export default function Hero() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    const query = new URLSearchParams({
-      status: selectedStatus !== "All Status" ? selectedStatus : "",
-      location: selectedLocation !== "All Locations" ? selectedLocation : "",
-    }).toString();
-    window.location.href = `#properties?${query}`;
+    const params = new URLSearchParams();
+    if (selectedStatus && selectedStatus !== "All Status") {
+      params.set("status", selectedStatus);
+    }
+    if (selectedLocation && selectedLocation !== "All Locations") {
+      params.set("area", selectedLocation);
+    }
+    const queryString = params.toString();
+    window.location.href = queryString ? `/properties?${queryString}` : "/properties";
   };
 
 
@@ -441,7 +442,7 @@ export default function Hero() {
         <div className="w-full max-w-4xl flex flex-col items-center">
           <form
             onSubmit={handleSearch}
-            className="grid w-full grid-cols-1 gap-2 rounded-[26px] border border-white/70 bg-white/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.38)] backdrop-blur-2xl sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:items-center sm:gap-3 sm:rounded-[30px] sm:p-3"
+            className="grid w-full grid-cols-1 gap-2 rounded-[26px] border border-white/50 bg-white/40 p-2.5 shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur-2xl sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:items-center sm:gap-3 sm:rounded-[30px] sm:p-3 sm:border-white/70 sm:bg-white/95"
           >
             <SearchFilter
               label="Project status"
@@ -463,13 +464,13 @@ export default function Hero() {
               }
               onChange={setSelectedLocation}
             />
-            <button
+            {/* <button
               type="submit"
-              className="flex min-h-[56px] w-full cursor-pointer items-center justify-center gap-2.5 rounded-2xl bg-zinc-950 px-7 text-sm font-semibold text-white shadow-lg shadow-black/15 transition-all duration-200 hover:bg-zinc-800 active:scale-[0.98] sm:w-auto sm:min-w-[150px]"
+              className="flex min-h-[54px] sm:min-h-[56px] w-full cursor-pointer items-center justify-center gap-2.5 rounded-2xl bg-zinc-950/90 sm:bg-zinc-950 px-7 text-sm font-semibold text-white shadow-lg shadow-black/15 backdrop-blur-md transition-all duration-200 hover:bg-black active:scale-[0.98] sm:w-auto sm:min-w-[150px]"
             >
               <Search className="h-4 w-4 stroke-[2.5]" />
               <span>Search</span>
-            </button>
+            </button> */}
           </form>
 
           {/* Minimal Slide Dots Indicator below Search Bar */}
