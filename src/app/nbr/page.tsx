@@ -243,21 +243,21 @@ export default function NRBPage() {
             </div>
 
             {/* Authentic Bengali Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white leading-[1.12] tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-light text-white leading-[1.12] tracking-tight mb-6 break-words">
               নিজের দেশে <br />
               <span className="font-bold text-white drop-shadow-sm">আপন ঠিকানা</span>
             </h1>
 
             {/* Sub-location */}
-            <p className="text-sm sm:text-base font-light text-zinc-300 mb-8 sm:mb-10 tracking-wide">
+            <p className="text-xs sm:text-base font-light text-zinc-300 mb-6 sm:mb-10 tracking-wide">
               Dhaka / Chattogram
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <a
                 href="#find-your-place"
-                className="px-6 sm:px-7 py-3 rounded-full bg-zinc-950 border border-white/20 hover:bg-white hover:text-zinc-950 text-white text-xs sm:text-sm font-medium transition-all duration-300 shadow-lg cursor-pointer active:scale-95"
+                className="px-6 sm:px-7 py-3 rounded-full bg-zinc-950 border border-white/20 hover:bg-white hover:text-zinc-950 text-white text-xs sm:text-sm font-medium transition-all duration-300 shadow-lg cursor-pointer active:scale-95 text-center justify-center inline-flex items-center"
               >
                 Explore Apartments
               </a>
@@ -265,7 +265,7 @@ export default function NRBPage() {
               <button
                 type="button"
                 onClick={() => setAdvisorModalOpen(true)}
-                className="px-6 sm:px-7 py-3 rounded-full bg-white/95 hover:bg-white text-zinc-950 text-xs sm:text-sm font-medium transition-all duration-300 shadow-lg cursor-pointer active:scale-95"
+                className="px-6 sm:px-7 py-3 rounded-full bg-white/95 hover:bg-white text-zinc-950 text-xs sm:text-sm font-medium transition-all duration-300 shadow-lg cursor-pointer active:scale-95 text-center justify-center"
               >
                 Talk to an NRB Advisor
               </button>
@@ -837,8 +837,8 @@ export default function NRBPage() {
       {/* NRB ADVISOR CONSULTATION MODAL */}
       {/* ========================================================= */}
       {advisorModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn">
-          <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6 sm:p-8 text-zinc-900 border border-zinc-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm animate-fadeIn">
+          <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-white rounded-2xl shadow-2xl p-5 sm:p-8 text-zinc-900 border border-zinc-200">
             {/* Modal Close Button */}
             <button
               type="button"
