@@ -66,7 +66,7 @@ export default function LandownerSection({ variant = "dark" }: { variant?: "dark
       ref={sectionRef}
       className={`relative w-full border-t px-6 py-20 sm:px-10 sm:py-28 lg:px-16 ${
         isLight
-          ? "border-black/10 bg-[#f7f6f3] text-[#191919]"
+          ? "border-zinc-200 bg-white text-zinc-900"
           : "border-white/10 bg-[#0e0e0e] text-white"
       }`}
     >
@@ -78,7 +78,7 @@ export default function LandownerSection({ variant = "dark" }: { variant?: "dark
         <div className="lg:col-span-7 space-y-6">
           <div className="space-y-2">
             <div className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-mono uppercase tracking-wider ${
-              isLight ? "bg-amber-500/10 text-amber-800" : "bg-white/10 text-amber-400"
+              isLight ? "bg-zinc-100 text-zinc-800 border border-zinc-200" : "bg-white/10 text-white"
             }`}>
               <Handshake className="w-3.5 h-3.5" />
               <span>Joint Venture Development</span>
@@ -108,14 +108,14 @@ export default function LandownerSection({ variant = "dark" }: { variant?: "dark
               return (
                 <div
                   key={idx}
-                  className={`space-y-2.5 rounded-2xl border p-4 backdrop-blur-md transition-colors sm:p-5 ${
+                  className={`space-y-2.5 rounded-2xl border p-4 backdrop-blur-md transition-all sm:p-5 ${
                     isLight
-                      ? "border-black/[0.08] bg-white hover:border-amber-600/30"
+                      ? "border-zinc-200 bg-white hover:border-zinc-400 hover:shadow-md"
                       : "border-white/10 bg-white/[0.04] hover:border-white/20"
                   }`}
                 >
                   <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${
-                    isLight ? "bg-amber-500/10 text-amber-800" : "bg-amber-400/10 text-amber-400"
+                    isLight ? "bg-zinc-100 text-zinc-900" : "bg-white/10 text-white"
                   }`}>
                     <Icon className="w-4 h-4" />
                   </div>
@@ -210,8 +210,10 @@ export default function LandownerSection({ variant = "dark" }: { variant?: "dark
 
             <button
               type="submit"
-              className={`mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold shadow-md transition-all duration-300 active:scale-95 ${
-                isLight ? "bg-amber-400 text-base text-zinc-950 hover:bg-amber-300" : "bg-white text-sm text-zinc-950 hover:bg-zinc-200"
+              className={`mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-semibold transition-all duration-300 active:scale-95 ${
+                isLight
+                  ? "border border-zinc-300 bg-white hover:bg-zinc-950 hover:border-zinc-950 text-zinc-900 hover:text-white shadow-sm text-base"
+                  : "bg-white text-sm text-zinc-950 hover:bg-zinc-200"
               }`}
             >
               {submitted ? (

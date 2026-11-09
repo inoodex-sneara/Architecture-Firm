@@ -7,7 +7,7 @@ import CustomerTestimonials from "@/components/CustomerTestimonials";
 
 export default function Home() {
   return (
-    <main className="relative z-10 flex-1 bg-black overflow-x-hidden">
+    <main className="relative z-10 flex-1 bg-white overflow-x-hidden">
       <Hero />
       <OurPerfections />
       <SpecialOffer />

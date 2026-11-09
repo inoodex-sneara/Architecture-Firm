@@ -1,59 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Check, ArrowUpRight } from "lucide-react";
-
-const storyYears = [1984, 1986, 1990, 1996, 2000, 2006, 2011, 2016, 2019];
-
-const timelineContent: Record<number, { title: string; subtitle: string; text: string }> = {
-  1984: {
-    title: "1984–1985",
-    subtitle: "The Foundation of Inoodex",
-    text: "In 1984, Inoodex began as a pioneer of contemporary architectural living in Bangladesh, guided by an unwavering commitment to structural integrity, timeless aesthetics, and enduring client trust.",
-  },
-  1986: {
-    title: "1986–1990",
-    subtitle: "Pioneering Modern Residential Concepts",
-    text: "The studio expanded its architectural footprint with innovative residential concepts and built an unmatched reputation for disciplined project execution and on-time handovers.",
-  },
-  1990: {
-    title: "1990–1996",
-    subtitle: "Urban Communities & Master Planning",
-    text: "Conceived new urban communities and multi-unit sanctuaries in Dhaka, responding to the growing aspiration for serene, light-filled, and functional contemporary residences.",
-  },
-  1996: {
-    title: "1996–2000",
-    subtitle: "Structural Resilience & Architectural Ambition",
-    text: "An ambitious portfolio emerged, blending biophilic architectural elements with precision engineering to deliver enduring generational value for families and investors.",
-  },
-  2000: {
-    title: "2000–2006",
-    subtitle: "Landmark Residential & Commercial Spaces",
-    text: "Deepened expertise in high-grade seismic-resistant construction, creating iconic residential addresses and commercial hubs throughout Dhaka's prime avenues.",
-  },
-  2006: {
-    title: "2006–2011",
-    subtitle: "Refining the Luxury Skyline",
-    text: "Strategic architectural refinement and bespoke spatial design elevated the brand, defining premier addresses across Gulshan, Banani, and Baridhara.",
-  },
-  2011: {
-    title: "2011–2016",
-    subtitle: "Contemporary Urban Identity",
-    text: "Emphasized sustainable architecture, expansive glass facades, and curated material palettes, setting new benchmarks for high-end luxury developments in Bangladesh.",
-  },
-  2016: {
-    title: "2016–2019",
-    subtitle: "Bespoke Design-Led Philosophy",
-    text: "Adopted a design-first philosophy where every project is treated as an individual piece of sculpture, harmonizing human emotion with architectural serenity.",
-  },
-  2019: {
-    title: "2019–Present",
-    subtitle: "The Next Era of Architecture",
-    text: "Today, Inoodex continues to sculpt the future with purpose—crafting iconic sustainable landmarks that celebrate craftsmanship, visionary design, and quiet luxury.",
-  },
-};
 
 const coreValues = [
   "Win the Customer's Heart through Sincere Dedication",
@@ -66,255 +15,318 @@ const coreValues = [
 ];
 
 export default function AboutPage() {
-  const [selectedYear, setSelectedYear] = useState(1984);
-
   return (
-    <div className="min-h-screen bg-[#f7f6f3] text-[#191919]">
-      {/* Full Architectural Banner Showcase (Clean image view without text overlays) */}
-      <section className="relative w-full overflow-hidden border-b border-black/10 bg-black pt-16 sm:pt-20">
+    <div className="min-h-screen bg-white text-zinc-900">
+      {/* Full Architectural Banner Showcase (Clean view without text overlays) */}
+      <section className="relative w-full overflow-hidden border-b border-zinc-200 bg-black pt-16 sm:pt-20">
         <div className="relative w-full aspect-[1.7/1] sm:aspect-[2.6/1] lg:aspect-[3.2/1] max-h-[600px] overflow-hidden bg-[#101114]">
           <Image
-            src="/hero/slide-5.jpg"
-            alt="Contemporary home framed by warm architectural lighting"
+            src="/showcase/statement-of-arrival.webp"
+            alt="Inoodex Architectural Landmark"
             fill
             priority
-            className="object-cover object-[center_56%] brightness-[0.92] contrast-105 saturate-[0.9]"
+            className="object-cover object-center brightness-100 contrast-105"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />
           {/* Subtle top vignette for seamless navbar integration */}
           <div className="absolute inset-x-0 top-0 h-24 sm:h-32 bg-gradient-to-b from-black/85 via-black/30 to-transparent pointer-events-none" />
           {/* Subtle bottom fade */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#f7f6f3] to-transparent sm:h-20" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent sm:h-20" />
         </div>
       </section>
 
-      {/* Legacy & History Section */}
-      <section className="border-b border-black/10 bg-[#f7f6f3] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
-        <div className="mx-auto max-w-[1320px]">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-            {/* Visual Mosaic */}
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_24px_70px_rgba(0,0,0,0.12)]">
-                <div className="relative h-[340px] w-full sm:h-[420px]">
-                  <Image
-                    src="/showcase/Our-Legacy-1.webp"
-                    alt="Modern Inoodex Architecture"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </div>
-
-              <div className="absolute -bottom-8 left-6 w-[55%] overflow-hidden rounded-xl border border-white bg-white p-1.5 shadow-2xl sm:w-[50%]">
-                <div className="relative h-[180px] sm:h-[220px] rounded-lg overflow-hidden">
-                  <Image
-                    src="/showcase/about-us-legacy-2.webp"
-                    alt="Interior Spatial Geometry"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 55vw, 25vw"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Content Column */}
-            <div className="pt-6 sm:pt-8 lg:pt-0 lg:pl-6 space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-2.5 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-600">
-                <span>Our Heritage</span>
-              </div>
-
-              <h2 className="text-2xl font-light tracking-tight text-[#191919] sm:text-3xl lg:text-4xl">
-                Four Decades of Architectural Excellence
-              </h2>
-
-              <div className="space-y-3 text-sm font-light leading-relaxed text-zinc-600 sm:text-[15px]">
-                <p>
-                  Inoodex stands as a pioneering institution in Bangladesh&apos;s architectural landscape, raising benchmarks of professionalism, aesthetic purity, and sustainable urban living.
-                </p>
-                <p>
-                  With a proud legacy of disciplined on-time deliveries, structural resilience exceeding national building codes, and bespoke spatial curation, we have shaped prominent skylines for over 40 years.
-                </p>
-                <p>
-                  Our collaborative practice unites award-winning architects, senior structural consultants, and landscape artists driven by a single purpose: crafting spaces that inspire human peace.
-                </p>
-              </div>
-
-              <div className="pt-2 flex items-center gap-6">
-                <div>
-                  <p className="text-2xl font-light font-mono text-[#191919] sm:text-3xl">40+</p>
-                  <p className="text-[11px] uppercase font-mono tracking-wider text-zinc-500">Years of Legacy</p>
-                </div>
-                <div className="h-8 w-px bg-black/10" />
-                <div>
-                  <p className="text-2xl font-light font-mono text-[#191919] sm:text-3xl">150+</p>
-                  <p className="text-[11px] uppercase font-mono tracking-wider text-zinc-500">Curated Projects</p>
-                </div>
-                <div className="h-8 w-px bg-black/10" />
-                <div>
-                  <p className="text-2xl font-light font-mono text-[#191919] sm:text-3xl">100%</p>
-                  <p className="text-[11px] uppercase font-mono tracking-wider text-zinc-500">Delivery Record</p>
-                </div>
-              </div>
-            </div>
+      {/* Tensa-Style Split Parallax Showcase (Full-Width Alternating 50/50 Layout) */}
+      <section className="relative w-full border-b border-zinc-200 bg-white">
+        {/* ============================================================ */}
+        {/* Block 1: Left Fixed Parallax Image + Right Floating White Box */}
+        {/* ============================================================ */}
+        <div className="flex flex-col lg:flex-row w-full min-h-[580px] lg:min-h-[720px] border-b border-zinc-200">
+          {/* Left Column: Fixed Background Architectural Photo */}
+          <div
+            className="w-full lg:w-1/2 min-h-[420px] sm:min-h-[480px] lg:min-h-full bg-cover bg-center bg-no-repeat lg:bg-fixed relative overflow-hidden"
+            style={{ backgroundImage: "url('/showcase/Our-Legacy-1.webp')" }}
+          >
+            <div className="absolute inset-0 bg-black/10" />
           </div>
-        </div>
-      </section>
 
-      {/* Interactive Timeline Section */}
-      <section className="border-b border-black/10 bg-[#eeece8] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
-        <div className="mx-auto max-w-[1320px]">
-          <div className="text-center mb-8 sm:mb-10 space-y-2">
-            <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-amber-800">Historical Evolution</span>
-            <h2 className="text-2xl font-light tracking-tight text-[#191919] sm:text-3xl lg:text-4xl">
-              Milestones Shaping Our Four-Decade Journey
+          {/* Right Column: Clean White Floating Box (Matches Tensa Screenshot) */}
+          <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center text-center px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-24 z-10">
+            {/* Gold Laurel Wreath Award Icon */}
+            <div className="mb-5 sm:mb-6">
+              <Image
+                src="/showcase/tensa-awards-icon.png"
+                alt="Award Recognition"
+                width={78}
+                height={50}
+                className="h-10 sm:h-12 w-auto object-contain mx-auto"
+              />
+            </div>
+
+            {/* Main Headline (All caps, clean tracking, matching Tensa) */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[0.05em] text-zinc-950 uppercase leading-tight max-w-xl">
+              Architectural Excellence.
             </h2>
+
+            {/* Subtitle Quote in quotation marks */}
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 font-light italic tracking-wide max-w-md">
+              &ldquo;Pioneering Contemporary Architectural Living In Bangladesh Since 1984&rdquo;
+            </p>
+
+            {/* Descriptive Inoodex Legacy Story */}
+            <p className="mt-6 max-w-md text-sm sm:text-[15px] leading-relaxed text-zinc-700 font-normal">
+              Inoodex stands as a pioneering institution in Bangladesh&apos;s architectural landscape, raising benchmarks of craftsmanship, aesthetic purity, and sustainable urban living.
+            </p>
+
+            {/* Metrics Row */}
+            <div className="mt-8 pt-6 border-t border-zinc-200 w-full max-w-md flex items-center justify-center gap-6 sm:gap-10">
+              <div>
+                <p className="text-2xl sm:text-3xl font-light font-mono text-zinc-950">40+</p>
+                <p className="text-[10.5px] uppercase font-mono tracking-wider text-zinc-500 mt-0.5">Years Legacy</p>
+              </div>
+              <div className="h-8 w-px bg-zinc-200" />
+              <div>
+                <p className="text-2xl sm:text-3xl font-light font-mono text-zinc-950">150+</p>
+                <p className="text-[10.5px] uppercase font-mono tracking-wider text-zinc-500 mt-0.5">Projects</p>
+              </div>
+              <div className="h-8 w-px bg-zinc-200" />
+              <div>
+                <p className="text-2xl sm:text-3xl font-light font-mono text-zinc-950">100%</p>
+                <p className="text-[10.5px] uppercase font-mono tracking-wider text-zinc-500 mt-0.5">Delivery Record</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* Block 2: Left Floating White Box + Right Fixed Parallax Image */}
+        {/* ============================================================ */}
+        <div className="flex flex-col-reverse lg:flex-row w-full min-h-[580px] lg:min-h-[720px] border-b border-zinc-200">
+          {/* Left Column: Clean White Floating Box (Matches Tensa Screenshot) */}
+          <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center text-center px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-24 z-10">
+            {/* Gold Laurel Wreath Award Icon */}
+            <div className="mb-5 sm:mb-6">
+              <Image
+                src="/showcase/tensa-awards-icon.png"
+                alt="Award Recognition"
+                width={78}
+                height={50}
+                className="h-10 sm:h-12 w-auto object-contain mx-auto"
+              />
+            </div>
+
+            {/* Main Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[0.05em] text-zinc-950 uppercase leading-tight max-w-xl">
+              Eco Living Space.
+            </h2>
+
+            {/* Subtitle Quote in quotation marks */}
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 font-light italic tracking-wide max-w-md">
+              &ldquo;Excellence In Sustainable, Biophilic &amp; Climate-Resilient Architecture&rdquo;
+            </p>
+
+            {/* Descriptive Story */}
+            <p className="mt-6 max-w-md text-sm sm:text-[15px] leading-relaxed text-zinc-700 font-normal">
+              Harmonizing natural sunlight, cross-ventilation, and seismic resilience exceeding BNBC standards to craft enduring sanctuaries where human peace thrives.
+            </p>
+
+            {/* Highlights Tag Pills */}
+            <div className="mt-8 pt-6 border-t border-zinc-200 w-full max-w-md flex flex-wrap items-center justify-center gap-2">
+              {["Biophilic Design", "Zero Redundancy", "BNBC Exceeding", "Enduring Sanctuary"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-zinc-300 bg-zinc-50 px-3.5 py-1 text-xs font-mono font-medium text-zinc-800 uppercase tracking-wider"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-black/[0.08] bg-white/70 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-md sm:p-6">
-            {/* Year Selector Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-3 scrollbar-none">
-              {storyYears.map((year) => (
-                <button
-                  key={year}
-                  type="button"
-                  onClick={() => setSelectedYear(year)}
-                  className={`shrink-0 rounded-full border px-3.5 py-1.5 text-sm font-mono transition-all duration-200 cursor-pointer ${
-                    selectedYear === year
-                      ? "border-amber-600 bg-amber-500/10 text-amber-800 shadow-sm"
-                      : "border-black/10 bg-white text-zinc-600 hover:border-amber-600/30 hover:text-zinc-900"
-                  }`}
+          {/* Right Column: Fixed Background Architectural Photo */}
+          <div
+            className="w-full lg:w-1/2 min-h-[420px] sm:min-h-[480px] lg:min-h-full bg-cover bg-center bg-no-repeat lg:bg-fixed relative overflow-hidden"
+            style={{ backgroundImage: "url('/showcase/about-us-legacy-2.webp')" }}
+          >
+            <div className="absolute inset-0 bg-black/10" />
+          </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* Block 3: Historical Evolution (Left Image + Right White Box) */}
+        {/* ============================================================ */}
+        <div className="flex flex-col lg:flex-row w-full min-h-[580px] lg:min-h-[720px] border-b border-zinc-200">
+          {/* Left Column: Fixed Background Architectural Photo */}
+          <div
+            className="w-full lg:w-1/2 min-h-[420px] sm:min-h-[480px] lg:min-h-full bg-cover bg-center bg-no-repeat lg:bg-fixed relative overflow-hidden"
+            style={{ backgroundImage: "url('/hero/slide-2.jpg')" }}
+          >
+            <div className="absolute inset-0 bg-black/15" />
+          </div>
+
+          {/* Right Column: Clean White Floating Box (Historical Evolution) */}
+          <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center text-center px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-24 z-10">
+            {/* Gold Laurel Wreath Award Icon */}
+            <div className="mb-5 sm:mb-6">
+              <Image
+                src="/showcase/tensa-awards-icon.png"
+                alt="Award Recognition"
+                width={78}
+                height={50}
+                className="h-10 sm:h-12 w-auto object-contain mx-auto"
+              />
+            </div>
+
+            {/* Main Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[0.05em] text-zinc-950 uppercase leading-tight max-w-xl">
+              Four-Decade Evolution.
+            </h2>
+
+            {/* Subtitle Quote in quotation marks */}
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 font-light italic tracking-wide max-w-md">
+              &ldquo;Milestones Shaping Our Architectural Journey From 1984 To The Present Era&rdquo;
+            </p>
+
+            {/* Clean Timeline Eras List */}
+            <div className="mt-8 pt-6 border-t border-zinc-200 w-full max-w-lg text-left space-y-4">
+              <div className="border-l-2 border-amber-600 pl-4 py-1">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-amber-800 font-bold">1984 – 1996</span>
+                <h4 className="text-sm sm:text-[15px] font-semibold text-zinc-950">Foundation &amp; Modern Residential Pioneers</h4>
+                <p className="text-xs sm:text-[13px] text-zinc-600 mt-1 leading-relaxed">
+                  Began as a pioneer of contemporary residential living in Bangladesh, establishing unmatched discipline in structural execution and on-time handovers.
+                </p>
+              </div>
+
+              <div className="border-l-2 border-zinc-300 pl-4 py-1">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-amber-800 font-bold">1996 – 2011</span>
+                <h4 className="text-sm sm:text-[15px] font-semibold text-zinc-950">Urban Communities &amp; Seismic Engineering</h4>
+                <p className="text-xs sm:text-[13px] text-zinc-600 mt-1 leading-relaxed">
+                  Deepened expertise in high-grade seismic-resistant construction, creating premier residential landmarks and commercial hubs across Gulshan, Banani, and Baridhara.
+                </p>
+              </div>
+
+              <div className="border-l-2 border-zinc-300 pl-4 py-1">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-amber-800 font-bold">2011 – Present</span>
+                <h4 className="text-sm sm:text-[15px] font-semibold text-zinc-950">Sustainable Skylines &amp; Quiet Luxury</h4>
+                <p className="text-xs sm:text-[13px] text-zinc-600 mt-1 leading-relaxed">
+                  Emphasized biophilic architecture, expansive glass facades, and bespoke spatial craftsmanship, defining the next era of luxury sanctuary living.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* Block 4: Guiding Philosophy & 7 Pillars (Left White Box + Right Image) */}
+        {/* ============================================================ */}
+        <div className="flex flex-col-reverse lg:flex-row w-full min-h-[580px] lg:min-h-[720px] border-b border-zinc-200">
+          {/* Left Column: Clean White Floating Box (Philosophy & 7 Pillars) */}
+          <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center text-center px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-24 z-10">
+            {/* Gold Laurel Wreath Award Icon */}
+            <div className="mb-5 sm:mb-6">
+              <Image
+                src="/showcase/tensa-awards-icon.png"
+                alt="Award Recognition"
+                width={78}
+                height={50}
+                className="h-10 sm:h-12 w-auto object-contain mx-auto"
+              />
+            </div>
+
+            {/* Main Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[0.05em] text-zinc-950 uppercase leading-tight max-w-xl">
+              Guiding Philosophy.
+            </h2>
+
+            {/* Subtitle Quote in quotation marks */}
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 font-light italic tracking-wide max-w-md">
+              &ldquo;To Sculpt Human-Centric Spatial Environments That Inspire Joyful Living&rdquo;
+            </p>
+
+            {/* Core Pillars List */}
+            <div className="mt-8 pt-6 border-t border-zinc-200 w-full max-w-lg text-left">
+              <ul className="space-y-3">
+                {coreValues.map((value, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-zinc-900 font-medium">
+                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-amber-600 text-white shadow-xs">
+                      <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                    </span>
+                    <span className="leading-snug">{value}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Right Column: Fixed Background Architectural Photo */}
+          <div
+            className="w-full lg:w-1/2 min-h-[420px] sm:min-h-[480px] lg:min-h-full bg-cover bg-center bg-no-repeat lg:bg-fixed relative overflow-hidden"
+            style={{ backgroundImage: "url('/hero/slide-1.jpg')" }}
+          >
+            <div className="absolute inset-0 bg-black/10" />
+          </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* Block 5: The Inoodex Standard (Left Image + Right White Box) */}
+        {/* ============================================================ */}
+        <div className="flex flex-col lg:flex-row w-full min-h-[580px] lg:min-h-[720px]">
+          {/* Left Column: Fixed Background Architectural Photo */}
+          <div
+            className="w-full lg:w-1/2 min-h-[420px] sm:min-h-[480px] lg:min-h-full bg-cover bg-center bg-no-repeat lg:bg-fixed relative overflow-hidden"
+            style={{ backgroundImage: "url('/showcase/Our-Legacy-2.webp')" }}
+          >
+            <div className="absolute inset-0 bg-black/10" />
+          </div>
+
+          {/* Right Column: Clean White Floating Box (The Inoodex Standard) */}
+          <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center text-center px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-24 z-10">
+            {/* Gold Laurel Wreath Award Icon */}
+            <div className="mb-5 sm:mb-6">
+              <Image
+                src="/showcase/tensa-awards-icon.png"
+                alt="Award Recognition"
+                width={78}
+                height={50}
+                className="h-10 sm:h-12 w-auto object-contain mx-auto"
+              />
+            </div>
+
+            {/* Main Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[0.05em] text-zinc-950 uppercase leading-tight max-w-xl">
+              The Inoodex Standard.
+            </h2>
+
+            {/* Subtitle Quote in quotation marks */}
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 font-light italic tracking-wide max-w-md">
+              &ldquo;Why Discerning Clients Choose Inoodex As Their Sanctuary Maker&rdquo;
+            </p>
+
+            {/* Descriptive Story */}
+            <p className="mt-6 max-w-md text-sm sm:text-[15px] leading-relaxed text-zinc-700 font-normal">
+              Visionary spatial planning, rigorous structural engineering, transparent governance, and on-time delivery bring absolute confidence to every stage of your architectural journey.
+            </p>
+
+            {/* Highlights Tag Pills */}
+            <div className="mt-8 pt-6 border-t border-zinc-200 w-full max-w-md flex flex-wrap items-center justify-center gap-2">
+              {["Design-Led", "BNBC Exceeding", "On-Time Handover", "Generational Value"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-zinc-300 bg-zinc-50 px-3.5 py-1 text-xs font-mono font-medium text-zinc-800 uppercase tracking-wider"
                 >
-                  {year}
-                </button>
+                  {tag}
+                </span>
               ))}
             </div>
 
-            {/* Active Milestone Card */}
-            <div className="mt-4 overflow-hidden rounded-xl border border-black/10 bg-white">
-              <div className="grid lg:grid-cols-[1.4fr_0.9fr]">
-                <div className="relative min-h-[300px] sm:min-h-[360px] w-full">
-                  <Image
-                    src="/hero/slide-2.jpg"
-                    alt="Inoodex Historic Milestone"
-                    fill
-                    className="object-cover grayscale opacity-80"
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-black/65" />
-                  <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
-                    <div>
-                      <span className="text-[11px] font-mono uppercase tracking-[0.3em] text-amber-300">Landmark Era</span>
-                      <p className="text-xl sm:text-[1.65rem] font-light tracking-wide text-white mt-1">FORUM ARCHITECTURAL RESIDENCES</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-center border-t border-black/10 bg-white p-6 sm:p-8 lg:border-l lg:border-t-0">
-                  <div className="space-y-3">
-                    <span className="inline-block text-xs font-mono uppercase tracking-wider text-amber-800">
-                      {timelineContent[selectedYear].title}
-                    </span>
-                    <h3 className="text-lg font-medium leading-snug text-[#191919] sm:text-xl">
-                      {timelineContent[selectedYear].subtitle}
-                    </h3>
-                    <p className="text-sm font-light leading-relaxed text-zinc-600 sm:text-[14px]">
-                      {timelineContent[selectedYear].text}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Vision & Core Values Section */}
-      <section className="bg-[#f7f6f3] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
-        <div className="mx-auto max-w-[1320px]">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 items-start">
-            {/* Left: Purpose & Values */}
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-amber-800">Guiding Philosophy</span>
-                <h2 className="text-2xl font-light tracking-tight text-[#191919] sm:text-3xl lg:text-4xl">Vision &amp; Core Principles</h2>
-                <p className="max-w-lg text-sm font-light leading-relaxed text-zinc-600 sm:text-[15px]">
-                  To sculpt human-centric spatial environments and make the experience of living in an architectural sanctuary joyful, fulfilling, and timeless.
-                </p>
-              </div>
-
-              <div className="border-t border-black/10 pt-2">
-                <div className="flex items-center justify-between pb-3">
-                  <h3 className="text-base font-medium tracking-wide text-[#191919] sm:text-lg">Our Core Pillars</h3>
-                  <span className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">01 — 07</span>
-                </div>
-
-                <ul className="divide-y divide-black/[0.08]">
-                  {coreValues.map((value, idx) => (
-                    <li key={idx} className="flex items-start gap-3 py-2.5 text-sm font-light text-zinc-700 sm:py-3 sm:text-[14px]">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-amber-700/30 bg-amber-600/10 text-amber-800">
-                        <Check className="h-2.5 w-2.5" strokeWidth={3} />
-                      </span>
-                      <span className="leading-relaxed">{value}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Right: Architectural Feature Frame */}
-            <div className="space-y-6">
-              <div className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_24px_70px_rgba(0,0,0,0.12)]">
-                <div className="relative aspect-[16/10] w-full overflow-hidden">
-                  <Image
-                    src="/hero/slide-1.jpg"
-                    alt="Inoodex Contemporary Living"
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 text-white">
-                    <p className="text-[11px] uppercase font-mono tracking-[0.2em] text-amber-300">Quiet Luxury</p>
-                    <p className="text-base sm:text-lg font-light tracking-wide mt-0.5">Spaces that breathe with light.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Callout Box */}
-              <div className="space-y-3 rounded-2xl border border-black/[0.08] bg-white p-5 shadow-sm sm:p-6">
-                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-amber-800">The Inoodex Standard</span>
-                <h3 className="text-base font-medium text-[#191919] sm:text-lg">
-                  Why Discerning Clients Choose Inoodex
-                </h3>
-                <p className="text-sm font-light leading-relaxed text-zinc-600 sm:text-[14px]">
-                  Visionary spatial planning, rigorous structural engineering, transparent governance, and on-time delivery bring absolute confidence to every stage of your architectural journey.
-                </p>
-
-                <div className="pt-1 flex flex-wrap items-center gap-2">
-                  {["Design-Led", "BNBC Exceeding", "On-Time Handover", "Generational Value"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-black/10 bg-[#f7f6f3] px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider text-zinc-600"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="pt-2">
-                  <Link
-                    href="/#properties"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-amber-800 transition-colors hover:text-amber-600"
-                  >
-                    <span>View Our Featured Developments</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
+            {/* Call to Action Button */}
+            <div className="mt-8">
+              <Link
+                href="/properties"
+                className="inline-flex items-center gap-2 rounded-full bg-zinc-950 px-6 py-3 text-xs font-mono font-semibold uppercase tracking-wider text-white transition hover:bg-zinc-800"
+              >
+                <span>Explore Featured Developments</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>

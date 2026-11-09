@@ -177,7 +177,7 @@ export default function CustomerTestimonials() {
       <section
         id="testimonials"
         ref={sectionRef}
-        className="w-full py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#101114] text-white border-t border-white/5 overflow-hidden"
+        className="w-full py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-white text-zinc-900 border-t border-zinc-200 overflow-hidden"
       >
         <div className="max-w-[1440px] mx-auto">
           {/* Section Header: Title on Left, Circular Arrow Buttons on Right */}
@@ -186,8 +186,8 @@ export default function CustomerTestimonials() {
             className="flex items-center justify-between gap-4 mb-8 sm:mb-12"
           >
             {/* Left Title */}
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight">
-              What do our customers <span className="font-normal text-white">say?</span>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight">
+              What do our customers <span className="font-semibold text-zinc-950">say?</span>
             </h2>
 
             {/* Right Circular Navigation Arrow Controls */}
@@ -196,7 +196,7 @@ export default function CustomerTestimonials() {
                 type="button"
                 onClick={prevSlide}
                 aria-label="Previous Testimonial"
-                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer shadow-md"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-zinc-300 hover:border-zinc-950 hover:bg-zinc-950 hover:text-white text-zinc-800 bg-white flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer shadow-sm"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -204,7 +204,7 @@ export default function CustomerTestimonials() {
                 type="button"
                 onClick={nextSlide}
                 aria-label="Next Testimonial"
-                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer shadow-md"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-zinc-300 hover:border-zinc-950 hover:bg-zinc-950 hover:text-white text-zinc-800 bg-white flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer shadow-sm"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -227,7 +227,7 @@ export default function CustomerTestimonials() {
                 >
                   <div
                     onClick={() => setActiveModalItem(item)}
-                    className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white text-zinc-900 border border-white/10 shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 flex flex-col justify-between cursor-pointer"
+                    className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white text-zinc-900 border border-zinc-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_20px_45px_rgba(0,0,0,0.12)] hover:border-zinc-300 hover:-translate-y-1.5 flex flex-col justify-between cursor-pointer"
                   >
                     {/* Top: Customer Photo with Header Tag */}
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-900">

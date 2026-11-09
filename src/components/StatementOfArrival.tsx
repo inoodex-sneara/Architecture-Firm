@@ -93,7 +93,7 @@ export default function StatementOfArrival() {
       <section
         id="statement"
         ref={sectionRef}
-        className="relative w-full min-h-[70vh] sm:min-h-[85vh] lg:min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-black select-none border-t border-white/5"
+        className="relative w-full min-h-[70vh] sm:min-h-[85vh] lg:min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-black select-none border-t border-zinc-200"
       >
         {/* Full-Bleed Background Architectural Render */}
         <div ref={bgImgRef} className="absolute inset-0 z-0 will-change-transform">

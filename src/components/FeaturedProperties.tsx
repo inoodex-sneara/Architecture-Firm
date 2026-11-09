@@ -168,7 +168,7 @@ export default function FeaturedProperties() {
     <section
       id="featured-properties"
       ref={sectionRef}
-      className="w-full py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#191a1d] text-white border-t border-white/5"
+      className="w-full py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#fafafa] text-zinc-900 border-t border-zinc-200"
     >
       <div className="max-w-[1340px] mx-auto">
         {/* Section Header: "View all properties ->" on Left, "Featured properties" on Right */}
@@ -178,16 +178,16 @@ export default function FeaturedProperties() {
         >
           {/* Left Action Button: View all properties */}
           <Link
-            href="#properties"
-            className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-black/60 hover:bg-black text-white text-xs sm:text-sm font-medium border border-white/20 hover:border-white/40 transition-all duration-300 shadow-lg cursor-pointer active:scale-95 group"
+            href="/properties"
+            className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-white hover:bg-zinc-950 hover:text-white text-zinc-900 text-xs sm:text-sm font-medium border border-zinc-300 transition-all duration-300 shadow-sm cursor-pointer active:scale-95 group"
           >
             <span>View all properties</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
 
           {/* Right Heading: Featured properties */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight">
-            Featured <span className="font-normal text-white">properties</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight">
+            Featured <span className="font-semibold text-zinc-950">properties</span>
           </h2>
         </div>
 
@@ -197,9 +197,10 @@ export default function FeaturedProperties() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7"
         >
           {featuredProperties.map((item) => (
-            <div
+            <Link
               key={item.id}
-              className="group rounded-2xl sm:rounded-3xl overflow-hidden bg-[#242528] text-white flex flex-col shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 border border-white/5 cursor-pointer"
+              href={`/properties/${item.id}`}
+              className="group rounded-lg overflow-hidden bg-white text-zinc-900 flex flex-col shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_20px_45px_rgba(0,0,0,0.12)] hover:-translate-y-1 border border-zinc-200 cursor-pointer block"
             >
               {/* Visual Frame */}
               <div className="relative aspect-[16/17] sm:aspect-[4/4.5] w-full overflow-hidden bg-zinc-900">
@@ -223,7 +224,7 @@ export default function FeaturedProperties() {
 
                 {/* Hovered State: Floating Specs Bar (Matches Reference Exactly) */}
                 <div
-                  className={`absolute bottom-3 left-3 right-3 z-20 flex flex-col gap-1.5 rounded-2xl border border-white/15 bg-black/85 p-3 shadow-2xl backdrop-blur-md transition-all duration-300 sm:bottom-3.5 sm:left-3.5 sm:right-3.5 sm:p-3.5 ${
+                  className={`absolute bottom-2.5 left-2.5 right-2.5 z-20 flex flex-col gap-1.5 rounded-lg border border-white/15 bg-black/85 p-3 shadow-2xl backdrop-blur-md transition-all duration-300 sm:bottom-3 sm:left-3 sm:right-3 sm:p-3.5 ${
                     activeCard === item.id
                       ? "translate-y-0 opacity-100"
                       : "pointer-events-none translate-y-3 opacity-0 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100"
@@ -321,15 +322,15 @@ export default function FeaturedProperties() {
               </div>
 
               {/* Card Bottom: Project Title & Location */}
-              <div className="flex flex-col justify-center bg-[#242528] p-4 sm:p-5">
-                <h3 className="text-base sm:text-lg font-bold tracking-tight text-white transition-colors">
+              <div className="flex flex-col justify-center bg-white border-t border-zinc-100 p-4 sm:p-5">
+                <h3 className="text-base sm:text-lg font-bold tracking-tight text-zinc-900 transition-colors">
                   {item.name}
                 </h3>
-                <p className="text-xs sm:text-sm text-zinc-400 mt-0.5 font-light">
+                <p className="text-xs sm:text-sm text-zinc-500 mt-0.5 font-light">
                   {item.location}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

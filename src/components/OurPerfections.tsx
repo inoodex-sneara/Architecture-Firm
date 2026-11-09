@@ -164,18 +164,18 @@ export default function OurPerfections() {
     <section
       id="properties"
       ref={sectionRef}
-      className="relative z-20 -mt-6 sm:-mt-10 rounded-t-[32px] sm:rounded-t-[44px] w-full pt-16 sm:pt-20 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[#080808] text-white border-t border-white/10 shadow-[0_-25px_60px_rgba(0,0,0,0.95)]"
+      className="relative z-20 -mt-6 sm:-mt-10 rounded-t-[32px] sm:rounded-t-[44px] w-full pt-16 sm:pt-20 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-white text-zinc-900 border-t border-zinc-200/80 shadow-[0_-15px_40px_rgba(0,0,0,0.05)]"
     >
       <div className="max-w-[1140px] mx-auto">
         {/* Section Header */}
         <div ref={titleRef} className="flex flex-col items-center justify-center mb-8 sm:mb-10 text-center">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-[10.5px] font-mono tracking-widest text-zinc-300 uppercase mb-2">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-[10.5px] font-mono tracking-widest text-zinc-600 uppercase mb-2">
             <span>Curated Developments</span>
           </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-light tracking-[0.2em] uppercase text-white">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-light tracking-[0.2em] uppercase text-zinc-900">
             OUR PERFECTIONS
           </h2>
-          <div className="h-0.5 w-12 bg-gradient-to-r from-red-600 via-red-500 to-amber-500 mt-2.5 rounded-full shadow-[0_0_12px_rgba(239,68,68,0.5)]" />
+          <div className="h-0.5 w-12 bg-gradient-to-r from-red-600 via-red-500 to-amber-500 mt-2.5 rounded-full shadow-[0_0_12px_rgba(239,68,68,0.3)]" />
         </div>
 
         {/* 4 Compact Columns Grid - Sleek, compact proportions on laptops and desktops */}
@@ -189,7 +189,7 @@ export default function OurPerfections() {
               className="group flex flex-col cursor-pointer"
             >
               {/* Compact Tall Image Frame with Luxury Glass Border */}
-              <div className="relative aspect-[3/4] sm:aspect-[9/13] w-full overflow-hidden bg-zinc-900 mb-2.5 rounded-2xl border border-white/10 transition-all duration-500 group-hover:border-white/30 group-hover:shadow-[0_15px_35px_rgba(0,0,0,0.85)]">
+              <div className="relative aspect-[3/4] sm:aspect-[9/13] w-full overflow-hidden bg-zinc-100 mb-2.5 rounded-2xl border border-zinc-200 transition-all duration-500 group-hover:border-zinc-400 group-hover:shadow-[0_15px_35px_rgba(0,0,0,0.12)]">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -307,18 +307,18 @@ export default function OurPerfections() {
               {/* Text Info Below Image */}
               <div className="space-y-0.5 px-0.5">
                 {/* Location */}
-                <div className="flex items-center gap-1 text-[10.5px] text-zinc-400 font-light tracking-wide">
+                <div className="flex items-center gap-1 text-[10.5px] text-zinc-500 font-light tracking-wide">
                   <MapPin className="w-2.5 h-2.5 text-red-500 shrink-0" />
                   <span className="truncate">{item.location}</span>
                 </div>
 
                 {/* Project Name */}
-                <h3 className="text-xs sm:text-[13px] font-bold text-white tracking-wider uppercase group-hover:text-amber-300 transition-colors truncate">
+                <h3 className="text-xs sm:text-[13px] font-bold text-zinc-900 tracking-wider uppercase group-hover:text-amber-600 transition-colors truncate">
                   {item.name}
                 </h3>
 
                 {/* Size / SFT */}
-                <p className="text-[10px] text-zinc-400 font-light font-mono">
+                <p className="text-[10px] text-zinc-500 font-light font-mono">
                   {item.size}
                 </p>
               </div>

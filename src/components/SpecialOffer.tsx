@@ -2,105 +2,12 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight, ArrowRight, Tag } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
-interface SpecialProject {
-  id: string;
-  name: string;
-  location: string;
-  image: string;
-  arrowDark?: boolean;
-  specs?: {
-    size: string;
-    bed: string;
-    bath: string;
-    land: string;
-  };
-}
-
-const projects: SpecialProject[] = [
-  {
-    id: "silvi",
-    name: "Silvi",
-    location: "Gulshan, Dhaka",
-    image: "/offers/silvi.jpg",
-    arrowDark: false,
-    specs: {
-      size: "1850 to 2600 sft",
-      bed: "3-4",
-      bath: "3-4",
-      land: "18 Katha",
-    },
-  },
-  {
-    id: "cosmopolis",
-    name: "Cosmopolis",
-    location: "Mirpur, Dhaka",
-    image: "/offers/cosmopolis.jpg",
-    arrowDark: true,
-    specs: {
-      size: "1047 to 2279 sft",
-      bed: "3-4",
-      bath: "3",
-      land: "47 Katha",
-    },
-  },
-  {
-    id: "park-royale",
-    name: "Park Royale",
-    location: "Gulshan, Dhaka",
-    image: "/offers/park-royale.jpg",
-    arrowDark: false,
-    specs: {
-      size: "3100 to 4500 sft",
-      bed: "4",
-      bath: "4",
-      land: "25 Katha",
-    },
-  },
-  {
-    id: "luminara-skyline",
-    name: "Luminara Skyline",
-    location: "Banani 11, Dhaka",
-    image: "/projects/project-1.jpg",
-    arrowDark: true,
-    specs: {
-      size: "2450 to 3800 sft",
-      bed: "4",
-      bath: "4",
-      land: "32 Katha",
-    },
-  },
-  {
-    id: "zenith-enclave",
-    name: "Zenith Enclave",
-    location: "Dhanmondi, Dhaka",
-    image: "/projects/project-2.jpg",
-    arrowDark: false,
-    specs: {
-      size: "2150 to 3200 sft",
-      bed: "3-4",
-      bath: "3",
-      land: "20 Katha",
-    },
-  },
-  {
-    id: "grand-meridian",
-    name: "The Grand Meridian",
-    location: "Baridhara Diplomatic Zone",
-    image: "/projects/project-3.jpg",
-    arrowDark: true,
-    specs: {
-      size: "4200 to 5600 sft",
-      bed: "4-5",
-      bath: "5",
-      land: "55 Katha",
-    },
-  },
-];
+import { specialOffersData } from "@/data/specialOffers";
 
 const AUTOSLIDE_INTERVAL = 3800; // 3.8s per slide
 
@@ -113,6 +20,7 @@ export default function SpecialOffer() {
   const [visibleCount, setVisibleCount] = useState(1);
   const [slideStep, setSlideStep] = useState(0);
 
+  const projects = specialOffersData;
   const maxIndex = Math.max(0, projects.length - visibleCount);
   const activeIndex = Math.min(currentIndex, maxIndex);
 
@@ -218,35 +126,47 @@ export default function SpecialOffer() {
         {/* Top Header */}
         <div
           ref={headerRef}
-          className="mb-8 sm:mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
+          className="mb-8 sm:mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"
         >
           <div className="min-w-0">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight">
               Special <span className="font-semibold text-zinc-950">offer</span>
             </h2>
-            <p className="mt-1 text-xs sm:text-sm font-normal text-zinc-500">
+            <p className="mt-1.5 text-xs sm:text-sm font-normal text-zinc-500">
               Explore our ongoing projects across Dhaka and Chattogram.
             </p>
           </div>
 
-          {/* Left and Right Navigation Arrows */}
-          <div className="flex shrink-0 items-center gap-2.5 self-end sm:self-auto">
-            <button
-              type="button"
-              onClick={prevSlide}
-              aria-label="Previous Project"
-              className="flex h-10 w-10 sm:h-11 sm:w-11 cursor-pointer items-center justify-center rounded-full border border-zinc-300 bg-white text-zinc-800 shadow-sm transition-all duration-300 hover:border-zinc-950 hover:bg-zinc-950 hover:text-white active:scale-95"
+          {/* Right Action Group: View All Button + Carousel Arrows */}
+          <div className="flex shrink-0 items-center gap-3 self-start sm:self-auto">
+            {/* View All Button linking to /offers */}
+            <Link
+              href="/offers"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white hover:bg-zinc-950 text-zinc-800 hover:text-white px-5 py-2.5 text-xs sm:text-sm font-medium transition-all duration-300 shadow-sm active:scale-95 group cursor-pointer"
             >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              type="button"
-              onClick={nextSlide}
-              aria-label="Next Project"
-              className="flex h-10 w-10 sm:h-11 sm:w-11 cursor-pointer items-center justify-center rounded-full border border-zinc-300 bg-white text-zinc-800 shadow-sm transition-all duration-300 hover:border-zinc-950 hover:bg-zinc-950 hover:text-white active:scale-95"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+              <span>View all properties</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+            </Link>
+
+            {/* Left and Right Navigation Arrows */}
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={prevSlide}
+                aria-label="Previous Project"
+                className="flex h-10 w-10 sm:h-11 sm:w-11 cursor-pointer items-center justify-center rounded-full border border-zinc-300 bg-white text-zinc-800 shadow-sm transition-all duration-300 hover:border-zinc-950 hover:bg-zinc-950 hover:text-white active:scale-95"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                type="button"
+                onClick={nextSlide}
+                aria-label="Next Project"
+                className="flex h-10 w-10 sm:h-11 sm:w-11 cursor-pointer items-center justify-center rounded-full border border-zinc-300 bg-white text-zinc-800 shadow-sm transition-all duration-300 hover:border-zinc-950 hover:bg-zinc-950 hover:text-white active:scale-95"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -264,8 +184,9 @@ export default function SpecialOffer() {
                 key={item.id}
                 className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-19px)] shrink-0"
               >
-                <div
-                  className="group rounded-2xl sm:rounded-3xl overflow-hidden bg-[#1c1c1c] text-white flex flex-col shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 block border border-zinc-200/40 cursor-pointer"
+                <Link
+                  href={`/properties/${item.id}`}
+                  className="group rounded-lg overflow-hidden bg-[#1c1c1c] text-white flex flex-col shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 block border border-zinc-200/50 cursor-pointer"
                 >
                   {/* Compact Visual Aspect Ratio */}
                   <div className="relative aspect-[4/4.5] sm:aspect-[16/17] w-full overflow-hidden bg-zinc-900">
@@ -278,7 +199,13 @@ export default function SpecialOffer() {
                     />
 
                     {/* Gradient Depth */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/30" />
+
+                    {/* Special Offer Pill Badge (Top Left) */}
+                    <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 rounded-full bg-zinc-950/85 backdrop-blur-md border border-amber-400/40 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-amber-300 font-semibold shadow-lg">
+                      <Tag className="w-3 h-3 text-amber-400" />
+                      <span>{item.offerBadge}</span>
+                    </div>
 
                     {/* Unhovered State: White circular arrow button on bottom right */}
                     <div className="absolute bottom-3.5 right-3.5 sm:bottom-4 sm:right-4 z-10 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90 pointer-events-none">
@@ -287,9 +214,9 @@ export default function SpecialOffer() {
                       </div>
                     </div>
 
-                    {/* Hovered State: Floating Specs Bar (Matches Reference Image Exactly) */}
+                    {/* Hovered State: Floating Specs Bar */}
                     {item.specs && (
-                      <div className="absolute bottom-3 left-3 right-3 sm:bottom-3.5 sm:left-3.5 sm:right-3.5 rounded-2xl bg-black/85 backdrop-blur-md p-3 sm:p-3.5 border border-white/15 flex flex-col gap-2 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-20 shadow-2xl">
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3 sm:right-3 rounded-lg bg-black/85 backdrop-blur-md p-3 sm:p-3.5 border border-white/15 flex flex-col gap-2 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-20 shadow-2xl">
                         {/* Emblem Badge on Top Left */}
                         <div className="inline-flex items-center self-start px-2.5 py-0.5 rounded bg-zinc-800/90 border border-white/10 text-[9px] uppercase font-mono tracking-wider text-zinc-200 font-medium">
                           <span>{item.name}</span>
@@ -363,7 +290,7 @@ export default function SpecialOffer() {
                       {item.location}
                     </p>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -377,14 +304,16 @@ export default function SpecialOffer() {
               type="button"
               onClick={() => setCurrentIndex(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                activeIndex === idx
-                  ? "w-8 bg-zinc-950"
-                  : "w-2 bg-zinc-300 hover:bg-zinc-500"
-              }`}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === idx
+                ? "w-8 bg-zinc-950"
+                : "w-2 bg-zinc-300 hover:bg-zinc-500"
+                }`}
             />
           ))}
         </div>
+
+        {/* Big Centered "View All" Button at Section Bottom */}
+        
       </div>
     </section>
   );

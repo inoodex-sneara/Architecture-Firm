@@ -5,6 +5,7 @@ import { GsapProvider } from "@/providers/GsapProvider";
 import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import FloatingActions from "@/components/FloatingActions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,12 +28,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white selection:bg-white selection:text-black font-sans antialiased">
+      <body className="min-h-full flex flex-col bg-white text-zinc-900 selection:bg-black selection:text-white font-sans antialiased">
         <GsapProvider>
           <SmoothScrollProvider>
             <Navbar />
             {children}
             <Footer />
+            <FloatingActions />
           </SmoothScrollProvider>
         </GsapProvider>
       </body>
