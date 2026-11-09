@@ -460,10 +460,7 @@ export default function PropertiesPage() {
                   <span>Open Filters {activeFiltersCount > 0 && `(${activeFiltersCount})`}</span>
                 </button>
 
-                <p className="text-xs font-mono text-zinc-500">
-                  Showing <strong className="text-zinc-900">{startIndex}–{endIndex}</strong> of{" "}
-                  {filteredProperties.length} properties
-                </p>
+                
               </div>
             )}
 
@@ -665,10 +662,7 @@ export default function PropertiesPage() {
                 {/* PAGINATION BAR (Per page 10 items) */}
                 {totalPages > 1 && (
                   <div className="mt-12 pt-8 border-t border-zinc-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p className="text-xs font-mono text-zinc-500">
-                      Showing <strong className="text-zinc-950 font-semibold">{startIndex}–{endIndex}</strong> of{" "}
-                      <strong className="text-zinc-950 font-semibold">{filteredProperties.length}</strong> properties
-                    </p>
+                    
 
                     <div className="flex items-center gap-2">
                       {/* Prev Button */}
